@@ -5,19 +5,22 @@ class PathVisualizer:
         self.trails = {}
 
     def visualize(self, frame, poses):
-        # Update trails for each detected pose (Should only have one trail, and the trail should be thicker)
+        # Assign trails for each detected person
         for i, pose in enumerate(poses):
             if i not in self.trails:
-                self.trails[i] = []
+                self.trails[i] = []  # Create a new trail for the person
+
+            # Add the current position to the trail
             self.trails[i].append(pose)
 
             # Keep the trail length manageable
-            if len(self.trails[i]) > 50:
+            if len(self.trails[i]) > 50:  # Adjust trail length here
                 self.trails[i].pop(0)
 
         # Draw trails
-        for trail in self.trails.values():
+        for person_id, trail in self.trails.items():
             for j in range(1, len(trail)):
-                cv2.line(frame, trail[j - 1], trail[j], (0, 255, 0), 2)
+                cv2.line(frame, trail[j - 1], trail[j], (0, 255, 0), 2)  # Green trails
+                cv2.circle(frame, trail[-1], 5, (0, 0, 255), -1)  # Red dot for the current point
 
         return frame
