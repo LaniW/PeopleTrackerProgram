@@ -15,7 +15,6 @@ class PoseTracker:
         if result.pose_landmarks:
             landmarks = result.pose_landmarks.landmark
 
-            # Extract landmarks
             left_shoulder = landmarks[11]
             right_shoulder = landmarks[12]
             left_hip = landmarks[23]

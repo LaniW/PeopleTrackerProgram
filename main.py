@@ -4,8 +4,7 @@ from path_visualizer import PathVisualizer
 from utils.webcam import Webcam
 
 def main():
-    # Attempt to initialize Webcam (Does not work, I believe it is only accessing the built-in camera)
-    webcam = Webcam(camera_id=0) 
+    webcam = Webcam(camera_id=0) #id of the external webcam
     pose_tracker = PoseTracker()
     path_visualizer = PathVisualizer()
 
