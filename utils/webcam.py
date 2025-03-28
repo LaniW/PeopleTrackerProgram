@@ -13,7 +13,6 @@ class Webcam:
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
 
-        # Optionally set frame rate (if supported by your webcam)
         self.cap.set(cv2.CAP_PROP_FPS, 30)
 
     def get_frame(self):

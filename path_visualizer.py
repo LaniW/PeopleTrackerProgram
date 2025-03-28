@@ -21,6 +21,6 @@ class PathVisualizer:
         for person_id, trail in self.trails.items():
             for j in range(1, len(trail)):
                 cv2.line(frame, trail[j - 1], trail[j], (0, 255, 0), 2)
-                cv2.circle(frame, trail[-1], 5, (0, 0, 255), -1) 
+                cv2.circle(frame, trail[-1], 5, (0, 0, 255), -1)
 
         return frame
